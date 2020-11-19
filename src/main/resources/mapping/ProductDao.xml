@@ -22,11 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</sql>
 
 	<select id="findOne" parameterType="int" resultType="product">
-		select * from product where id =#{id}
+		select * from t_warehouse_product where f_id =#{id}
 	</select>
 
 	<select id="findAll" resultType="product">
-		select * from product
+		select * from t_warehouse_product
 	</select>
 
 	<select id="findPages" parameterType="map" resultType="product">
@@ -36,17 +36,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insert" parameterType="product">
 		insert into
-		product(pcode,pname,ptype,pcategory,pnumber,pprice)
+		t_warehouse_product(f_code,f_name,f_type,f_model_number,f_remain_number,f_price)
 		values(#{pcode},#{pname},#{ptype},#{pcategory},#{pnumber},#{pprice})
 	</insert>
 
 	<delete id="delete" parameterType="int">
-		delete from product where id = #{id}
+		delete from t_warehouse_product where f_id = #{id}
 	</delete>
 
 	<update id="update" parameterType="product">
 		update product set
-		pcode=#{pcode},pname=#{pname},ptype=#{ptype},pcategory=#{pcategory},pnumber=#{pnumber},pprice=#{pprice},pimage=#{pimage}
+		f_code=#{pcode},f_name=#{pname},f_type=#{ptype},f_model_number=#{pcategory},f_remain_number=#{pnumber},f_price=#{pprice},f_image=#{pimage}
 		where id=#{id}
 	</update>
 </mapper>

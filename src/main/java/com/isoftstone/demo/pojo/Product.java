@@ -1,5 +1,9 @@
 package com.isoftstone.demo.pojo;
 
+/**
+ * @author 李正阳
+ * 商品对象
+ */
 public class Product {
 	
 	Integer id;

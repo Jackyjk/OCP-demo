@@ -1,6 +1,7 @@
 package com.isoftstone.demo.dao;
 
 import com.isoftstone.demo.pojo.Product;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;

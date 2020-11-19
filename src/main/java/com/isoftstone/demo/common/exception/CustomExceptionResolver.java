@@ -16,8 +16,9 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 	/**
 	 * һ�����������κ��쳣��ֻҪ��û�б�����ģ�ͨͨ���ᵽ����������һ��ͳһ����
 	 */
+	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex) {
+										 HttpServletResponse response, Object handler, Exception ex) {
 		//�ж��쳣�Ƿ���CustomerException
 		ProductException pex = null;
 		if(ex instanceof ProductException){
