@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.isoftstone.demo.dao.ProductDao">
+
+
+	<sql id="query_product_where">
+		<where>
+			<if test="pname!=null and pname!=''">
+				and pname like '%${pname}%'
+			</if>
+			<if test="priceStart!=null and priceStart!=''">
+				and pprice >=#{priceStart}
+			</if>
+			<if test="priceEnd!=null and priceEnd!=''">
+			    <![CDATA[
+                  and pprice <=#{priceEnd}
+                ]]>
+			</if>
+		</where>
+	</sql>
+
+	<select id="findOne" parameterType="int" resultType="product">
+		select * from product where id =#{id}
+	</select>
+
+	<select id="findAll" resultType="product">
+		select * from product
+	</select>
+
+	<select id="findPages" parameterType="map" resultType="product">
+		select * from product
+		<include refid="query_product_where"></include>
+	</select>
+
+	<insert id="insert" parameterType="product">
+		insert into
+		product(pcode,pname,ptype,pcategory,pnumber,pprice)
+		values(#{pcode},#{pname},#{ptype},#{pcategory},#{pnumber},#{pprice})
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from product where id = #{id}
+	</delete>
+
+	<update id="update" parameterType="product">
+		update product set
+		pcode=#{pcode},pname=#{pname},ptype=#{ptype},pcategory=#{pcategory},pnumber=#{pnumber},pprice=#{pprice},pimage=#{pimage}
+		where id=#{id}
+	</update>
+</mapper>
