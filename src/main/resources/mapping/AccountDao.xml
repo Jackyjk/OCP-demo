@@ -5,6 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.isoftstone.demo.dao.AccountDao">
    
    <select id="findUserByNameAndPass" parameterType="map" resultType="user">
-        select * from account where username=#{username} and password=#{password}
+        select * from `t_operator_user` where `f_name`=#{username} and `f_password`=#{password}
    </select>
 </mapper>
