@@ -2,6 +2,8 @@ package com.isoftstone.demo.dao;
 
 import com.isoftstone.demo.pojo.Order;
 
+import java.util.Map;
+
 public interface OrderDao {
     /**
      * 查找订房
@@ -14,7 +16,7 @@ public interface OrderDao {
      * 更新订单状态
      * @param status
      */
-    void updateStatus(int status);
+    void updateStatus(Map<String, Integer> status);
 
     /**
      * 上传附件
