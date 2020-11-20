@@ -74,12 +74,21 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public boolean checkNum(int id,Double need) throws Exception {
+	public boolean checkNum(int id,int need) throws Exception {
 		Product product = productDao.findOne(id);
-		if(Double.valueOf(product.getPnumber()) >= need){
+		if(product.getPnumber() >= need){
 			return true;
 		}else {
 			return false;
+		}
+	}
+
+	@Override
+	public void decNum(int id, int need) throws Exception {
+		Product product = productDao.findOne(id);
+		if(checkNum(id,need)){
+			product.setPnumber(product.getPnumber() - need);
+			productDao.update(product);
 		}
 	}
 
