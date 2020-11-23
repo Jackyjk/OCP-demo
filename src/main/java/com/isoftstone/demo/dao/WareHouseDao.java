@@ -5,5 +5,6 @@ import com.isoftstone.demo.pojo.WareHouse;
 import java.util.List;
 
 public interface WareHouseDao {
-    public List<WareHouse> getAllWareHouse() throws Exception;
+
+    public List<WareHouse> getAllWareHouse(int id) throws Exception;
 }
