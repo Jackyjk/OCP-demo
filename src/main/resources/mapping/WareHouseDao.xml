@@ -7,7 +7,7 @@
     <select id="getAllWareHouse" resultType="com.isoftstone.demo.pojo.WareHouse">
         SELECT `f_id` id,`f_name` name
         FROM t_warehouse
-        WHERE f_del_flag=false
+        WHERE `f_del_flag`=false
         ORDER BY `f_create_time`
     </select>
 </mapper>
