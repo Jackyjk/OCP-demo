@@ -15,8 +15,8 @@ public class WareHouseService implements com.isoftstone.demo.service.WareHouseSe
     private WareHouseDao wareHouseDao;
 
     @Override
-    public List<WareHouse> getAllWareHouse() throws Exception {
-        List<WareHouse> allWareHouse = wareHouseDao.getAllWareHouse();
+    public List<WareHouse> getAllWareHouse(int id) throws Exception {
+        List<WareHouse> allWareHouse = wareHouseDao.getAllWareHouse(id);
         return allWareHouse;
     }
 }
