@@ -7,4 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <select id="findUserByNameAndPass" parameterType="map" resultType="user">
         select * from `t_operator_user` where `f_name`=#{username} and `f_password`=#{password}
    </select>
+
+    <select id="findAgentUserByNameAndPass" parameterType="map" resultType="user">
+        select * from `t_agent_user` where `f_name`=#{username} and `f_password`=#{password}
+   </select>
 </mapper>

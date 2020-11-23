@@ -56,18 +56,18 @@
             labels : ["January","February","March","April","May","June","July"],
             datasets : [
                 {
-                    fillColor : "rgba(51, 184, 108, 0.75)",
-                    strokeColor : "rgba(51, 184, 108, 0.75)",
-                    pointColor : "#fff",
-                    pointStrokeColor : "rgba(51, 184, 108, 0.75)",
+                    fillColor : "#2b4049",
+                    strokeColor : "#2b4049",
+                    pointColor : "transparent",
+                    pointStrokeColor : "transparent",
                     data : [33,52,63,92,50,53,46]
                 },
                 
                 {
-                    fillColor : "#dcdcdc",
-                    strokeColor : "#dcdcdc",
-                    pointColor : "#fff",
-                    pointStrokeColor : "#dcdcdc",
+                    fillColor : "#2b9ac9",
+                    strokeColor : "#2b9ac9",
+                    pointColor : "transparent",
+                    pointStrokeColor : "transparent",
                     data : [15,25,40,35,32,9,33]
                 }
 
@@ -80,15 +80,15 @@
         var data1 = [
             {
                         value: 80,
-                        color:"#60b1cc"
+                        color:"#2b4049"
                     },
                     {
                         value : 50,
-                        color : "#bac3d2"
+                        color : "#2b9ac9"
                     },
                     {
                         value : 80,
-                        color : "#4697ce"
+                        color : "#58c9c7"
                     },
                     {
                         value : 50,
@@ -103,15 +103,15 @@
         var data2 = [
             {
                 value: 40,
-                color:"#dcdcdc"
+                color:"#2b4049"
             },
             {
                 value : 80,
-                color : "#33b86c"
+                color : "#2b9ac9"
             },
             {
                 value : 70,
-                color : "#999999"
+                color : "#58c9c7"
             }
         ]
         this.respChart($("#pie"),'Pie',data2);
@@ -122,13 +122,13 @@
             labels : ["January","February","March","April","May","June","July"],
                     datasets : [
                         {
-                            fillColor : "#33b86c",
-                            strokeColor : "#33b86c",
+                            fillColor : "#2b4049",
+                            strokeColor : "#2b4049",
                             data : [65,59,90,81,56,55,40]
                         },
                         {
-                            fillColor : "#dcdcdc",
-                            strokeColor : "#dcdcdc",
+                            fillColor : "#2b9ac9",
+                            strokeColor : "#2b9ac9",
                             data : [28,48,40,19,96,27,100]
                         }
                     ]
@@ -140,17 +140,17 @@
             labels : ["Eating","Drinking","Sleeping","Designing","Coding","Partying","Running"],
             datasets : [
                 {
-                    fillColor : "rgba(51, 184, 108, 0.5)",
-                    strokeColor : "rgba(51, 184, 108, 0.75)",
-                    pointColor : "rgba(51, 184, 108, 0.1)",
-                    pointStrokeColor : "#fff",
+                    fillColor : "#2b4049",
+                    strokeColor : "#2b4049",
+                    pointColor : "transparent",
+                    pointStrokeColor : "transparent",
                     data : [65,59,90,81,56,55,40]
                 },
                 {
-                    fillColor : "rgba(220, 220, 220, 0.5)",
-                    strokeColor : "rgba(220, 220, 220, 0.75)",
-                    pointColor : "rgba(220, 220, 220,1)",
-                    pointStrokeColor : "#fff",
+                    fillColor : "#2b9ac9",
+                    strokeColor : "#2b9ac9",
+                    pointColor : "transparent",
+                    pointStrokeColor : "transparent",
                     data : [28,48,40,19,96,27,100]
                 }
             ]
@@ -161,15 +161,15 @@
         var data5 = [
             {
                 value : 30,
-                color: "#60b1cc"
+                color: "#2b4049"
             },
             {
                 value : 90,
-                color: "#bac3d2"
+                color: "#2b9ac9"
             },
             {
                 value : 24,
-                color: "#4697ce"
+                color: "#58c9c7"
             },
             {
                 value : 58,
@@ -177,7 +177,7 @@
             },
             {
                 value : 82,
-                color: "#33b86c"
+                color: "#317eeb"
             },
             {
                 value : 8,

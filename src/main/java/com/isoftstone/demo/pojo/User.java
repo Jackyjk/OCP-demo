@@ -1,5 +1,8 @@
 package com.isoftstone.demo.pojo;
 
+/**
+ * 普通用户
+ */
 public class User {
 	
 	Integer id;
@@ -7,7 +10,7 @@ public class User {
 	String username;
 	
 	String password;
-
+	//0代表普通用户，1代表经销商，2代表root用户
 	Integer roleType;
 
 	public Integer getRoleType() {

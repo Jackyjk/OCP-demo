@@ -1,5 +1,8 @@
 package com.isoftstone.demo.pojo;
 
+/**
+ * 订单信息
+ */
 public class Order {
     private int id;    //订单编号
     private int flag;  //订单状态：0待审核、1已审核、2审核驳回、3取消、4待上传附件、5待复核、6复核驳回、7已复核、8成功

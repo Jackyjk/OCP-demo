@@ -1,5 +1,6 @@
 package com.isoftstone.demo.web;
 
+import com.alibaba.fastjson.JSONArray;
 import com.isoftstone.demo.pojo.User;
 import com.isoftstone.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,12 @@ public class UserController {
 	public String login(User u,HttpSession session,Model model) throws Exception {
 		User user = us.login(u.getUsername(), u.getPassword());
 		if(user!=null) {
-			session.setAttribute("user", user);
+			Object obj = JSONArray.toJSON(user);
+			String json = obj.toString();
+			return json;
+		}else{
+			return "ERROR";
 		}
-		return "index";
+
 	}
 }
