@@ -12,18 +12,32 @@
     VectorMap.prototype.init = function() {
         //various examples
         $('#world-map-markers').vectorMap({
-          map: 'world_mill_en',
-          scaleColors: ['#ea6c9c', '#ea6c9c'],
-          normalizeFunction: 'polynomial',
-          hoverOpacity: 0.7,
-          hoverColor: false,
-          markerStyle: {
-            initial: {
-              fill: '#317eeb',
-              stroke: '#ea6c9c'
-            }
+          map : 'world_mill_en',
+			normalizeFunction : 'polynomial',
+			hoverOpacity : 0.7,
+			hoverColor : false,
+			regionStyle : {
+				initial : {
+					fill : '#2b9ac9'
+				}
+			},
+			 markerStyle: {
+                initial: {
+                    r: 9,
+                    'fill': '#a288d5',
+                    'fill-opacity': 0.9,
+                    'stroke': '#fff',
+                    'stroke-width' : 7,
+                    'stroke-opacity': 0.4
+                },
+
+                hover: {
+                    'stroke': '#fff',
+                    'fill-opacity': 1,
+                    'stroke-width': 1.5
+                }
           },
-          backgroundColor: '#dcdcdc',
+          backgroundColor: 'transparent',
           markers: [
             {latLng: [41.90, 12.45], name: 'Vatican City'},
             {latLng: [43.73, 7.41], name: 'Monaco'},
@@ -57,25 +71,25 @@
         $('#europe').vectorMap({map: 'europe_mill_en',backgroundColor: 'transparent',
           regionStyle: {
             initial: {
-              fill: '#dcdcdc'
+              fill: '#2b9ac9'
             }
           }});
         $('#usa').vectorMap({map: 'us_aea_en',backgroundColor: 'transparent',
                   regionStyle: {
                     initial: {
-                      fill: '#dcdcdc'
+                      fill: '#2b9ac9'
                     }
                   }});
         $('#uk').vectorMap({map: 'uk_mill_en',backgroundColor: 'transparent',
                   regionStyle: {
                     initial: {
-                      fill: '#dcdcdc'
+                      fill: '#2b9ac9'
                     }
                   }});
         $('#chicago').vectorMap({map: 'us-il-chicago_mill_en',backgroundColor: 'transparent',
                   regionStyle: {
                     initial: {
-                      fill: '#dcdcdc'
+                      fill: '#2b9ac9'
                     }
                   }});
 
@@ -84,7 +98,7 @@
     $.VectorMap = new VectorMap, $.VectorMap.Constructor = VectorMap
 }(window.jQuery),
 
-//initializing 
+//initializing
 function($) {
     "use strict";
     $.VectorMap.init()

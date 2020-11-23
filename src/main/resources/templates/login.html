@@ -1,111 +1,165 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>登录界面
+        </title>
+        <!-- Bootstrap -->
+        <!-- <script src="js/jquery-3.4.1.js"></script> -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+        <style>
+            h1 {
+                margin: 0;
+                padding: 10px;
+                color: whitesmoke;
+                font-size: 50px;
+            }
 
-        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+            .bg {
+                height: 600px;
+                /* background-image: url(./assets/images/login_bg.jpg); */
+                background-color: aquamarine;
+                background-size: cover;
+            }
 
-        <title>OCP运营后台</title>
+            .form {
+                padding: 40px;
+                margin-top: 175px;
+                background: rgba(255, 255, 255, 0.2);
+            }
 
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/components.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+            .footer {
+                height: 60px;
+                padding-top: 20px;
+                font-size: 14px;
+                font-weight: bold;
+                text-align: center;
+            }
 
-        <script src="assets/js/modernizr.min.js"></script>
+            .page-header {
+                margin: 0;
+                padding: 0;
+                background-color: rgb(43, 64, 73);
+            }
 
+            .footer {
+                background-color: rgb(249, 249, 249);
+            }
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        
+        </style>
     </head>
+    <script>
+        function login() {
+            //登录逻辑
+            // 判断人员
+            var person = $('#person').val()
+            console.log(person);
+            //jQuery写法
+            var user = $('#username').val();
+            var password = $('#password').val();
+            $.ajax({
+                type: "post",  //post put get 等等
+                // url: "login.ashx",
+                //编写登录功能时，要将异步设置为false（缺省为true）
+                //如果async是ture,对于FireFox浏览器，会刷新掉alert()弹出框的内容
+                //对于Chrome浏览器，第一次注册时会执行error的回调函数，输出“请求在连接过程中出现错误..”
+                async: false,
+                data: {  //要传入ashx文件的数据
+                    "user": user,
+                    "password": password
+                },
+                success: function (data, textStatus) {
+                    //连接至ashx文件成功时，执行函数
+                    //data是从ashx文件返回来的信息，可以是字符串也可以是一个对象
+                    //如果data是字符串，则可以输出data的值
+                    //如果data是对象，则可以将这个对象的各属性值赋给其他变量
+                    //textStatus是表示状态的字符串，这里textStatus的值是"success"
+
+                    // 等待测试
+                    console.log(`sad${person}`);
+
+
+                    if (person == "Operator1") {
+                        window.open("index.html", "_self");
+                    }
+                    else {
+                        window.open("index2.html", "_self");
+                    }
+
+
+                    // if (data == "admin") {
+                    //     window.open("index.html", "_blank");
+                    // }
+                    // else {
+                    //     alert(data);  //这里data是从ashx文件返回的“账户名或密码不存在..
+                    // }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {  //连接至ashx文件失败时，执行函数
+                    //XMLHttpRequest在这个例子里没有用到
+                    //textStatus是表示状态的字符串，这里textStatus的值是"error"
+                    //errorThrown包含连接失败的信息，可以输出查看
+                    alert("请求在连接过程中出现错误..\n" + errorThrown);
+                }
+            });
+        }
+    </script>
+
     <body>
-
-
-        <div class="wrapper-page">
-            <div class="panel panel-color panel-primary panel-pages">
-                <div class="panel-heading bg-img"> 
-                    <div class="bg-overlay"></div>
-                    <h3 class="text-center m-t-10 text-white"> <span th:text="${message}"></span> </h3>
-                </div> 
-
-
-                <div class="panel-body">
-                <form class="form-horizontal m-t-20" th:action="@{/login}" method="post">
-                    
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control input-lg" type="text" required="" placeholder="Username" name="username">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <input class="form-control input-lg" type="password" required="" placeholder="Password" name="password">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <div class="checkbox checkbox-primary">
-                                <input id="checkbox-signup" type="checkbox">
-                                <label for="checkbox-signup">
-                                    Remember me
-                                </label>
+        <div class="page-header">
+            <h1>万家乐OCP经销商平台</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row bg">
+                <div
+                    class="col-md-offset-6 col-md-4 col-sm-offset-3 col-sm-7 col-xs-offset-2 col-xs-8 col-lg-offset-6 col-lg-3 form">
+                    <form class="form-horizontal" id="loginForm">
+                        <div class="form-group">
+                            <label for="username" class="col-sm-4 control-label">用户名</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="username" placeholder="请输入用户名">
                             </div>
-                            
                         </div>
-                    </div>
-                    
-                    <div class="form-group text-center m-t-40">
-                        <div class="col-xs-12">
-                            <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Log In</button>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-4 control-label">密码</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="password" placeholder="请输入密码">
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-4 control-label">角色类别</label>
+                            <div class="col-sm-8" style="padding:7.5px 20px">
+                                <input type="radio" id="person" value="Operator1" name="radioInline">非运营者
+                                &nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="person" value="Operator2" name="radioInline">运营者
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="submitBtn" class="btn btn-success" style="width: 50%;"
+                                    onclick="login()">登录</button>
+                            </div>
+                        </div>
+                    </form>
+                    <span style="color: red;" id="tip"></span>
+                </div>
+            </div>
 
-                    <div class="form-group m-t-30">
-                        <div class="col-sm-7">
-                            <a href="recoverpw.html"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                        </div>
-                        <div class="col-sm-5 text-right">
-                            <a href="register.html">Create an account</a>
-                        </div>
-                    </div>
-                </form> 
-                </div>                                 
-                
+            <div class="footer">
+                <p>©版权所有：SJJ-Group</p>
             </div>
         </div>
 
-        
-    	<script>
-            var resizefunc = [];
-        </script>
 
-        <!-- Main  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    </body>
 
-        <script src="assets/js/jquery.app.js"></script>
-	
-	</body>
 </html>

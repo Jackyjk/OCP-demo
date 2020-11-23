@@ -1,5 +1,5 @@
 /**
-* Theme: Moltran Admin Template
+* Theme: Montran Admin Template
 * Author: Coderthemes
 * Module/App: Flot-Chart
 */
@@ -41,8 +41,8 @@
               fill: true,
               lineWidth: 1,
               fillColor: {
-                colors: [ { opacity: 0.5 },
-                          { opacity: 0.5 }
+                colors: [ { opacity: 0 },
+                          { opacity: 0 }
                         ]
               }
             },
@@ -155,12 +155,12 @@
             lines: {
               show: true,
               fill: true,
-              lineWidth: 1,
+              lineWidth: 2,
               fillColor: {
                 colors: [{
-                  opacity: 0.45
+                  opacity: 0.0
                 }, {
-                  opacity: 0.45
+                  opacity: 0.0
                 }]
               }
             },
@@ -203,7 +203,7 @@
 
         return plot;
     },
-    //creates Donut Chart
+    //creates Pie Chart
     FlotChart.prototype.createDonutGraph = function(selector, labels, datas, colors) {
         var data = [{
             label: labels[0],
@@ -296,7 +296,7 @@
                 borderWidth: 1,
                 borderColor: "#eeeeee"
             },
-            colors: ["#33b86c", "#1a2942", "#60b1cc"],
+            colors: ["#317eeb", "#1a2942", "#60b1cc"],
             tooltip: true,
             tooltipOpts: {
                 defaultTheme: false
@@ -315,7 +315,7 @@
           var uploads = [[0, 9], [1, 8], [2, 5], [3, 8], [4, 5], [5, 14], [6, 10]];
           var downloads = [[0, 5], [1, 12], [2,4], [3, 3], [4, 12], [5, 11], [6, 14]];
           var plabels = ["Visits", "Pages/Visit"];
-          var pcolors = ['#33b86c', '#1a2942'];
+          var pcolors = ['#2b4049', '#2b9ac9'];
           var borderColor = '#efefef';
           var bgColor = '#fff';
           this.createPlotGraph("#website-stats", uploads, downloads, plabels, pcolors, borderColor, bgColor);
@@ -323,26 +323,26 @@
           //Pie graph data
           var pielabels = ["Series 1","Series 2","Series 3"];
           var datas = [20,30, 15];
-          var colors = ["rgba(51, 184, 108, 0.7)", "rgba(41, 182, 246, 0.7)", "rgba(59, 189, 202, 0.7)"];
+          var colors = ["#2b4049", "#2b9ac9", "#58c9c7"];
           this.createPieGraph("#pie-chart #pie-chart-container", pielabels , datas, colors);
 
 
             //real time data representation
-            var plot = this.createRealTimeGraph('#flotRealTime', this.randomData() , ['#33b86c']);
+            var plot = this.createRealTimeGraph('#flotRealTime', this.randomData() , ['#2b9ac9']);
             plot.draw();
             var $this = this;
             function updatePlot() {
                 plot.setData([$this.randomData()]);
                 // Since the axes don't change, we don't need to call plot.setupGrid()
                 plot.draw(); 
-                setTimeout(updatePlot, $( 'html' ).hasClass( 'mobile-device' ) ? 1000 : 1000);
+                setTimeout(updatePlot, $( 'html' ).hasClass( 'mobile-device' ) ? 1000 : 30);
             }
             updatePlot();
 
             //Donut pie graph data
           var donutlabels = ["Series 1","Series 2","Series 3","Series 4","Series 5"];
           var donutdatas = [35,20, 10, 15, 20];
-          var donutcolors = ["#60b1cc", "#bac3d2", "#4697ce","#6c85bd","#33b86c"];
+          var donutcolors = ["#2b4049", "#2b9ac9", "#58c9c7","#6c85bd","#317eeb"];
           this.createDonutGraph("#donut-chart #donut-chart-container", donutlabels , donutdatas, donutcolors);
 
           //Combine graph data
