@@ -7,6 +7,6 @@
     <select id="getDepartmentNameById" parameterType="int" resultType="string">
         SELECT f_name
         FROM t_department
-        WHERE `f_del_flag`=false
+        WHERE `f_del_flag`=0
     </select>
 </mapper>
