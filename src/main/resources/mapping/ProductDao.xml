@@ -5,48 +5,74 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.isoftstone.demo.dao.ProductDao">
 
 
-	<sql id="query_product_where">
-		<where>
-			<if test="pname!=null and pname!=''">
-				and pname like '%${pname}%'
-			</if>
-			<if test="priceStart!=null and priceStart!=''">
-				and pprice >=#{priceStart}
-			</if>
-			<if test="priceEnd!=null and priceEnd!=''">
-			    <![CDATA[
-                  and pprice <=#{priceEnd}
-                ]]>
-			</if>
-		</where>
-	</sql>
+	<!--<sql id="query_product_where">-->
+		<!--<where>-->
+			<!--<if test="pname!=null and pname!=''">-->
+				<!--and pname like '%${pname}%'-->
+			<!--</if>-->
+			<!--<if test="priceStart!=null and priceStart!=''">-->
+				<!--and pprice >=#{priceStart}-->
+			<!--</if>-->
+			<!--<if test="priceEnd!=null and priceEnd!=''">-->
+			    <!--<![CDATA[-->
+                  <!--and pprice <=#{priceEnd}-->
+                <!--]]>-->
+			<!--</if>-->
+		<!--</where>-->
+	<!--</sql>-->
 
-	<select id="findOne" parameterType="int" resultType="product">
-		select * from t_warehouse_product where f_id =#{id}
+	<select id="findOrderOne" parameterType="int" resultType="product">
+		select * from t_Order_product where f_id =#{id} AND f_del_flag != 1
 	</select>
 
-	<select id="findAll" resultType="product">
-		select * from t_warehouse_product
+	<select id="findOrderAll" resultType="product">
+		select * from t_Order_product where f_del_flag != 1
 	</select>
 
-	<select id="findPages" parameterType="map" resultType="product">
-		select * from product
-		<include refid="query_product_where"></include>
-	</select>
 
-	<insert id="insert" parameterType="product">
+	<insert id="insertOrderProduct" parameterType="product">
 		insert into
-		t_warehouse_product(f_code,f_name,f_type,f_model_number,f_remain_number,f_price)
+		t_Order_product(f_code,f_name,f_type,f_model_number,f_remain_number,f_price)
 		values(#{pcode},#{pname},#{ptype},#{pcategory},#{pnumber},#{pprice})
 	</insert>
 
-	<delete id="delete" parameterType="int">
-		delete from t_warehouse_product where f_id = #{id}
+	<delete id="deleteOrderProduct" parameterType="int">
+		update   t_warehouse_product set
+		f_del_flag = 1
 	</delete>
 
-	<update id="update" parameterType="product">
-		update product set
+	<update id="updateOderProduct" parameterType="product">
+		update t_Order_product set
 		f_code=#{pcode},f_name=#{pname},f_type=#{ptype},f_model_number=#{pcategory},f_remain_number=#{pnumber},f_price=#{pprice},f_image=#{pimage}
 		where id=#{id}
+	</update>
+
+
+	<!--订单货物的sql-->
+	<select id="findOne" parameterType="int" resultType="WareHouseProduct">
+		select * from t_warehouse_product where f_id =#{id}
+	</select>
+
+	<select id="findAll" resultType="WareHouseProduct">
+		select * from t_warehouse_product
+	</select>
+
+
+
+	<insert id="insert" parameterType="WareHouseProduct">
+		insert into
+		t_warehouse_product(f_code,f_name,f_type,f_model_number,f_remain_number,f_price)
+		values(#{code},#{name},#{type},#{modelNumber},#{remainNumber},#{price})
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		update   t_warehouse_product set
+		f_del_flag = 1
+	</delete>
+
+	<update id="update" parameterType="WareHouseProduct">
+		update t_warehouse_product set
+		f_code=#{code},f_name=#{name},f_type=#{type},f_model_number=#{modelNumber},f_remain_number=#{remainNumber},f_price=#{price}
+		where id=#{id} AND f_del_flag != 1
 	</update>
 </mapper>

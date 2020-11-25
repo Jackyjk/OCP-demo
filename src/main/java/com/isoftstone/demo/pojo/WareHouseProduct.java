@@ -1,5 +1,8 @@
 package com.isoftstone.demo.pojo;
 
+/**
+ * 仓库货物
+ */
 public class WareHouseProduct {
     private int id;
     private String code;

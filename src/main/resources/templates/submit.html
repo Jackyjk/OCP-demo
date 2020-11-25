@@ -493,7 +493,7 @@
     //var category = $.trim($('#select2ID option:selected').val());
     function loadnetdatabs2() {
         $.ajax({
-            url: url,    //后台controller中的请求路径
+            url: "/getLoginAgentUser",    //后台controller中的请求路径
             type: 'GET',
             async: false,
             datatype: 'json',

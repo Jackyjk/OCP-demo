@@ -1,6 +1,7 @@
 package com.isoftstone.demo.pojo;
 
 /**
+ * 订单货物
  * @author 李正阳
  *
  */
