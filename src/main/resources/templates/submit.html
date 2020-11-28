@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <link rel="shortcut icon" href="../static/assets/images/favicon_1.ico">
+
+        <title>添加产品信息</title>
+
+        <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/core.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/components.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/pages.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/menu.css" rel="stylesheet" type="text/css">
+        <link href="../static/assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+        <script src="../static/assets/js/modernizr.min.js"></script>
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+        <style>
+            .mine_stdl {
+                padding: 0px 5px;
+                color: red
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .left-panel {
+                width: 50%;
+                height: auto;
+                float: left;
+                padding: 35px;
+            }
+
+            .right-panel {
+                width: 50%;
+                height: auto;
+                padding: 35px;
+                float: right;
+            }
+
+            .mine_self_div {
+                /* border: 1px dashed #000; */
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .submit_mine_div{
+                margin:50px 500px;
+            }
+
+        </style>
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <a href="index2.html" class="logo"><i class="md md-terrain"></i> <span>万家乐OCP经销商平台 </span></a>
+                    </div>
+                </div>
+                <!-- Button mobile view to collapse sidebar menu -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="">
+                            <div class="pull-left">
+                                <button class="button-menu-mobile open-left">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <span class="clearfix"></span>
+                            </div>
+                            <form class="navbar-form pull-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control search-bar"
+                                        placeholder="Type here for search...">
+                                </div>
+                                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                            </form>
+
+                            <ul class="nav navbar-nav navbar-right pull-right">
+                                <li class="hidden-xs">
+                                    <a href="#" id="btn-fullscreen" class="waves-effect"><i
+                                            class="md md-crop-free"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown"
+                                        aria-expanded="true"><img src="../static/assets/images/users/2.jpg"
+                                            alt="user-img" class="img-circle"> </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <div class="user-details">
+                        <div class="pull-left">
+                            <img src="../static/assets/images/users/2.jpg" alt="" class="thumb-md img-circle">
+                        </div>
+                        <div class="user-info">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">John
+                                    Doe</a>
+                            </div>
+
+                            <p class="text-muted m-0">Administrator</p>
+                        </div>
+                    </div>
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect waves-light active"><i
+                                        class="md md-now-widgets"></i><span>订单管理</span><span class="pull-right"><i
+                                            class="md md-add"></i></span></a>
+                                <ul class="list-unstyled">
+                                    <!-- 订单管理 子菜单 开始 -->
+                                    <!-- <li><a th:href="@{/llpage}">提交订单</a></li>
+                                    <li><a th:href="@{/llpage}">待处理订单</a></li>
+                                    <li class="active"><a th:href="@{/llpage}">采购订单</a></li> -->
+                                    <li class="active"><a href="submit.html">提交订单</a></li>
+                                    <li><a href="pending.html">待处理订单</a></li>
+                                    <li><a href="purchase.html">采购订单</a></li>
+                                    <!-- 订单管理 子菜单 结束 -->
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4 class="pull-left page-title">提交订单</h4>
+                                <ol class="breadcrumb pull-right">
+                                    <li><a href="#">万家乐OCP经销商平台</a></li>
+                                    <li><a href="#">订单管理</a></li>
+                                    <li class="active">提交订单</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Basic example -->
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">提交订单信息</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form action="">
+                                            <div class="title">
+                                                <h2 style="text-align: center;font-weight: bolder;font-size: 5rem">
+                                                    [(${response.headline})]</h2>
+                                            </div>
+                                            <!-- 第一个 div 开始 表单相关信息-->
+                                            <div>
+                                                <!-- 第一个 div 开始   左半边 表单相关信息-->
+                                                <div class="panel panel-default left-panel" style="margin:5px 0px;;">
+                                                    <!-- 需求时间框  开始 -->
+                                                    <div class="mine_self_div">
+                                                        <span>客户名称 :</span>
+                                                        <br>
+                                                        <span
+                                                            style="margin:50px 30px;font-weight: bolder;">[(${response.name})]</span>
+                                                    </div>
+                                                    <!-- 需求时间框  结束 -->
+
+                                                    <!-- 需求时间框  开始 -->
+                                                    <div class="mine_self_div">
+                                                        <div>
+                                                            <span class="mine_stdl">*</span>店铺名称 :
+                                                        </div>
+                                                        <select id="shopName" name="shopName"
+                                                            class="form-control select2-multiple" type="text"
+                                                            style="width:350px">
+                                                        </select>
+
+                                                    </div>
+                                                    <!-- 需求时间框  结束 -->
+
+                                                    <!-- 需求时间框  开始 -->
+                                                    <div class="time_input mine_self_div">
+                                                        <div>
+                                                            <span class="mine_stdl">*</span>备货需求时间段 :
+                                                        </div>
+                                                        <div class="input-group" style="width: 300px;">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="mm/dd/yyyy" id="datepicker">
+                                                            <span class="input-group-addon"><i
+                                                                    class="glyphicon glyphicon-calendar"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 需求时间框  结束 -->
+                                                </div>
+
+                                                <!-- 第一个 div 开始   右半边 表单相关信息-->
+                                                <div class="panel panel-default right-panel" style="margin:5px 0px;;">
+                                                    <!-- 需求时间框  开始 -->
+                                                    <div class="mine_self_div"
+                                                        style="padding: 0px 20px 40px 2px;margin:20px">
+                                                        <div style="float:left;width: 50%;">
+                                                            <span>客户编码 :</span>
+                                                            <br>
+                                                            <span
+                                                                style="margin:50px 30px;font-weight: bolder;">[(${response.code})]</span>
+                                                        </div>
+                                                        <div style="float:right;width: 50%;">
+                                                            <span>区域 :</span>
+                                                            <br>
+                                                            <span
+                                                                style="margin:50px 30px;font-weight: bolder;">[(${list.zone})]</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="time_input mine_self_div">
+                                                        <div>
+                                                            <span class="mine_stdl">*</span>出货仓库 :
+                                                        </div>
+                                                        <div class="input-group" style="width: 200px;">
+                                                            <select id="bsselect2ID" name="bsselect2ID"
+                                                                class="form-control select2-multiple" type="text">
+                                                            </select>
+                                                        </div>
+                                                        <div
+                                                            style="float:right;width: 50%; margin: -50px 0px -20px 0px;">
+                                                            <span>提货方式 :</span>
+                                                            <br>
+                                                            <span
+                                                                style="margin:50px 30px;font-weight: bolder;">配送</span>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 需求时间框  结束 -->
+                                                    <!-- 备注  开始 -->
+                                                    <div class="mine_self_div">
+                                                        <div>
+                                                            <span class="mine_stdl">*</span>备注 :
+                                                        </div>
+                                                        <div class="input-group" style="width: 300px;">
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <!-- 备注  结束 -->
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- 第一个 div 结束 -->
+
+                                        <!-- 第二个 div 开始   新增表单-->
+                                        <div class="panel panel-default" style="margin:50px 0px;">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <button class="btn btn-info waves-effect waves-light btn-sm"
+                                                                type="button" data-toggle="modal"
+                                                                data-target="#custom-width-modal"> <i
+                                                                    class="md md-add-circle-outline"></i> 新增
+                                                            </button>
+                                                            <!-- Modal模态框-->
+                                                            <div id="custom-width-modal" class="modal fade"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="custom-width-modalLabel"
+                                                                aria-hidden="true" style="display: none">
+                                                                <div class="modal-dialog" style="width:30%">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-hidden="true">×</button>
+                                                                            <h4 class="modal-title"
+                                                                                id="custom-width-modalLabel">
+                                                                                新增产品</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>产品信息</p>
+
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <a type="button"
+                                                                                class="btn btn-primary waves-effect waves-light m-b-5"
+                                                                                th:href="@{/showAdd}">添加产品
+                                                                            </a>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>序号</th>
+                                                                    <th>产品编码</th>
+                                                                    <th>产品型号</th>
+                                                                    <th>品类</th>
+                                                                    <th>数量</th>
+                                                                    <th>开票价格</th>
+                                                                    <th>操作</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr th:each="p : ${page.list}">
+                                                                    <td>[(${p.id})]</td>
+                                                                    <td>[(${p.code })]</td>
+                                                                    <td>[(${p.name })]</td>
+                                                                    <td>[(${p.type })]</td>
+                                                                    <td>[(${p.remainNumber })]</td>
+                                                                    <td>[(${p.price })]</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default" type="button"
+                                                                            data-toggle="modal"
+                                                                            data-target="#custom-width-modal">删除
+                                                                        </button>
+                                                                        <a class="btn btn-default" type="button"
+                                                                            th:href="@{/preUpdate/}+${p.id}">编辑</a>
+                                                                        <!-- Modal模态框-->
+                                                                        <div id="custom-width-modal" class="modal fade"
+                                                                            tabindex="-1" role="dialog"
+                                                                            aria-labelledby="custom-width-modalLabel"
+                                                                            aria-hidden="true" style="display: none">
+                                                                            <div class="modal-dialog" style="width:30%">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <button type="button"
+                                                                                            class="close"
+                                                                                            data-dismiss="modal"
+                                                                                            aria-hidden="true">×</button>
+                                                                                        <h4 class="modal-title"
+                                                                                            id="custom-width-modalLabel">
+                                                                                            删除产品</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <p>确认删除该产品吗</p>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button"
+                                                                                            class="btn btn-default waves-effect"
+                                                                                            data-dismiss="modal">取消</button>
+                                                                                        <button type="button"
+                                                                                            class="btn btn-primary waves-effect waves-light"
+                                                                                            onclick="del(this)">确认删除</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 第二个 div 结束 -->
+
+
+                                <!-- 第三个 div 开始  提交信息 -->
+                                <div class="submit_mine_div">
+                                    <div algin="left" style="float:left">
+                                        <button style="margin:0 auto" type="submit"
+                                            class="btn btn-purple waves-effect waves-light w-lg">提交</button>
+                                    </div>
+                                    <div algin="right" style="padding-top:15px;">
+                                        <a href="">保存至待处理订单列表</a>
+                                    </div>
+                                </div>
+                                <!-- 第三个 div 开始 -->
+
+                                </form>
+                            </div><!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col-->
+                </div>
+            </div> <!-- container -->
+        </div> <!-- content -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+    </body>
+    <!-- jQuery  -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/detect.js"></script>
+    <script src="../static/assets/js/fastclick.js"></script>
+    <script src="../static/assets/js/jquery.slimscroll.js"></script>
+    <script src="../static/assets/js/jquery.blockUI.js"></script>
+    <script src="../static/assets/js/waves.js"></script>
+    <script src="../static/assets/js/wow.min.js"></script>
+    <script src="../static/assets/js/jquery.nicescroll.js"></script>
+    <script src="../static/assets/js/jquery.scrollTo.min.js"></script>
+
+    <script src="../static/assets/js/jquery.app.js"></script>
+
+    <!-- Sweet-Alert  -->
+    <script src="../static/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../static/assets/pages/jquery.sweet-alert.init.js"></script>
+    <script>
+        // var url = "demo/form/select2";
+        // console.log(url)
+        $(function () {
+            var selectedValues = [];
+            $("#shopName:selected").each(function () {
+                selectedValues.push($(this).val());
+            });
+
+            $("#shopName").selectpicker({
+                noneSelectedText: '请选择',   //默认显示内容
+                //placeholder:'请选择',//默认文字提示
+                // {#tags: true,//允许手动添加 #}
+                allowClear: true,//允许清空
+            });
+            loadnetdatas2();
+            loadnetdatabs2();    //执行此函数，从后台获取数据，拼接成option标签，添加到select的里面
+
+            //初始化刷新数据
+            $(window).on('load', function () {
+                $('#shopName').selectpicker('val', '');
+                $('#shopName').selectpicker('refresh');
+            });
+
+        });
+        //var category = $.trim($('#select2ID option:selected').val());
+        function loadnetdatabs2() {
+            $.ajax({
+                url: url,    //后台controller中的请求路径
+                type: 'GET',
+                async: false,
+                datatype: 'json',
+                success: function (results) {
+                    if (results) {
+                        var jsondata = results.data;
+                        //console.log(jsondata)
+                        var netnames = [];
+                        console.log(jsondata.length)
+                        for (var i = 0, len = jsondata.length; i < len; i++) {
+                            var netdata = jsondata[i];
+                            console.log(netdata)
+                            //拼接成多个<option><option/>
+                            netnames.push('<option value="' + netdata.userId + '">'
+                                + netdata.userName + '</option>')
+                        }
+                        $(" #shopName").html(netnames.join('')); //根据netID(根据你自己的ID写)填充到select标签中
+                        $('#shopName').selectpicker('val', '');
+                        $('#shopName').selectpicker('refresh');
+                    }
+                }, error:
+                    function () { alert('查询出错'); }
+            });
+        } </script>
+
+</html>
