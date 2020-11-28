@@ -90,4 +90,5 @@ public class ProductController {
 		productService.updateProduct(product, pictureFile, "D:\\upload");
 		return "redirect:/llpage";
 	}
+
 }

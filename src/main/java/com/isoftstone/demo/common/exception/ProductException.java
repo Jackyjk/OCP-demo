@@ -11,6 +11,7 @@ public class ProductException extends Exception {
 		this.message = message;
 	}
 
+	@Override
 	public String getMessage() {
 		return message;
 	}

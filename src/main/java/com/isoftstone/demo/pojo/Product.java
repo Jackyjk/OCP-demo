@@ -1,5 +1,9 @@
 package com.isoftstone.demo.pojo;
 
+/**
+ * @author 李正阳
+ * 商品对象
+ */
 public class Product {
 	
 	Integer id;
@@ -12,7 +16,7 @@ public class Product {
 	
 	String pcategory;
 	
-	String pnumber;
+	Integer pnumber;
 	
 	String pprice;
 	
@@ -58,11 +62,11 @@ public class Product {
 		this.pcategory = pcategory;
 	}
 
-	public String getPnumber() {
+	public Integer getPnumber() {
 		return pnumber;
 	}
 
-	public void setPnumber(String pnumber) {
+	public void setPnumber(Integer pnumber) {
 		this.pnumber = pnumber;
 	}
 

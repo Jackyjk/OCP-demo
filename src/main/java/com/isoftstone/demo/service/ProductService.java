@@ -21,4 +21,17 @@ public interface ProductService {
 	public Product preViewProdut(int pid) throws Exception;
 	
 	public void updateProduct(Product product, MultipartFile pimage, String rootPath) throws Exception;
+
+	/**
+	 * @author lzy
+	 * 判断还有没有货物
+	 * @return true 还有货 false 没有货物了
+	 */
+	public boolean checkNum(int id,int need)throws Exception;
+	/**
+	 * @author lzy
+	 * 减少库存
+	 */
+	public void decNum(int id,int need) throws Exception;
+
 }

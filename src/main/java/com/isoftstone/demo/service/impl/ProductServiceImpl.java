@@ -6,6 +6,7 @@ import com.isoftstone.demo.common.ProductVo;
 import com.isoftstone.demo.dao.ProductDao;
 import com.isoftstone.demo.pojo.Product;
 import com.isoftstone.demo.service.ProductService;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,4 +72,24 @@ public class ProductServiceImpl implements ProductService {
 	    product.setPimage("/upload/"+originalFilename);
 	    productDao.update(product);
 	}
+
+	@Override
+	public boolean checkNum(int id,int need) throws Exception {
+		Product product = productDao.findOne(id);
+		if(product.getPnumber() >= need){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public void decNum(int id, int need) throws Exception {
+		Product product = productDao.findOne(id);
+		if(checkNum(id,need)){
+			product.setPnumber(product.getPnumber() - need);
+			productDao.update(product);
+		}
+	}
+
 }
