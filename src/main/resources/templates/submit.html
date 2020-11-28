@@ -59,6 +59,10 @@
                 margin: 10px;
             }
 
+            .submit_mine_div{
+                margin:50px 500px;
+            }
+
         </style>
 
     </head>
@@ -74,7 +78,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="md md-terrain"></i> <span>万家乐OCP经销商平台 </span></a>
+                        <a href="index2.html" class="logo"><i class="md md-terrain"></i> <span>万家乐OCP经销商平台 </span></a>
                     </div>
                 </div>
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -186,7 +190,8 @@
                                     <div class="panel-body">
                                         <form action="">
                                             <div class="title">
-                                                <h2 style="text-align: center;">XXX weanweiawenaienwinewiniwein</h2>
+                                                <h2 style="text-align: center;font-weight: bolder;font-size: 5rem">
+                                                    [(${response.headline})]</h2>
                                             </div>
                                             <!-- 第一个 div 开始 表单相关信息-->
                                             <div>
@@ -196,8 +201,8 @@
                                                     <div class="mine_self_div">
                                                         <span>客户名称 :</span>
                                                         <br>
-                                                        <span style="margin:50px 30px;font-weight: bolder;">阿瑟东大时代您未
-                                                            有限公司</span>
+                                                        <span
+                                                            style="margin:50px 30px;font-weight: bolder;">[(${response.name})]</span>
                                                     </div>
                                                     <!-- 需求时间框  结束 -->
 
@@ -238,13 +243,13 @@
                                                             <span>客户编码 :</span>
                                                             <br>
                                                             <span
-                                                                style="margin:50px 30px;font-weight: bolder;">R9-asdas</span>
+                                                                style="margin:50px 30px;font-weight: bolder;">[(${response.code})]</span>
                                                         </div>
                                                         <div style="float:right;width: 50%;">
                                                             <span>区域 :</span>
                                                             <br>
                                                             <span
-                                                                style="margin:50px 30px;font-weight: bolder;">啊实打实的</span>
+                                                                style="margin:50px 30px;font-weight: bolder;">[(${list.zone})]</span>
                                                         </div>
                                                     </div>
 
@@ -383,140 +388,109 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="dataTables_info" id="datatable-fixed-header_info"
-                                                        role="status" aria-live="polite">Showing 1 to <span
-                                                            th:text="${page.pages }"></span> of <span
-                                                            th:text="${page.total}"></span>
-                                                        entries
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="dataTables_paginate paging_simple_numbers"
-                                                        id="datatable-fixed-header_paginate" style="text-align: right;">
-                                                        <ul class="pagination">
-                                                            <li class="paginate_button previous"
-                                                                aria-controls="datatable-fixed-header" tabindex="0"
-                                                                id="datatable-fixed-header_previous"><a
-                                                                    th:href="@{/llpage(pageNum=${page.pageNum-1})}">Previous</a>
-                                                            </li>
-
-                                                            <li class="paginate_button"
-                                                                aria-controls="datatable-fixed-header" tabindex="0"
-                                                                th:each="i:${#numbers.sequence(1,page.pages)}"><a
-                                                            th:href="@{/llpage(pageNum=${i})}">[(${i})]</a>
-                                                    </li>
-                                                    <li class="paginate_button next"
-                                                        aria-controls="datatable-fixed-header" tabindex="0"
-                                                        id="datatable-fixed-header_next"><a
-                                                            th:href="@{/llpage(pageNum=${page.pageNum+1})}">Next</a></li>
-                                                </ul>
-                                            </div>
-                                            </div>
                                         </div>
-                                        </div>
-                                        <!-- 第二个 div 结束 -->
+                                    </div>
+                                </div>
+                                <!-- 第二个 div 结束 -->
 
 
-                                        <!-- 第三个 div 开始  提交信息 -->
-                                        <div class="panel panel-default" style="margin:50px 0px;">
-                                            <div algin="left" style="float:left">
-                                                <button style="margin:0 auto" type="submit"
-                                                class="btn btn-purple waves-effect waves-light w-lg">提交</button>
-                                            </div>
-                                            <div algin="right" style="padding-top:15px;">
-                                                <a href="">保存至待处理订单列表</a>
-                                            </div>
-                                        </div>
-                                        <!-- 第三个 div 开始 -->
+                                <!-- 第三个 div 开始  提交信息 -->
+                                <div class="submit_mine_div">
+                                    <div algin="left" style="float:left">
+                                        <button style="margin:0 auto" type="submit"
+                                            class="btn btn-purple waves-effect waves-light w-lg">提交</button>
+                                    </div>
+                                    <div algin="right" style="padding-top:15px;">
+                                        <a href="">保存至待处理订单列表</a>
+                                    </div>
+                                </div>
+                                <!-- 第三个 div 开始 -->
 
-                                        </form>
-                                    </div><!-- panel-body -->
-                                </div> <!-- panel -->
-                            </div> <!-- col-->
-                        </div>
-                    </div> <!-- container -->
-                </div> <!-- content -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
+                                </form>
+                            </div><!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col-->
+                </div>
+            </div> <!-- container -->
+        </div> <!-- content -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
 
 
         </div>
         <!-- END wrapper -->
     </body>
-<!-- jQuery  -->
-<script src="../static/assets/js/jquery.min.js"></script>
-<script src="../static/assets/js/bootstrap.min.js"></script>
-<script src="../static/assets/js/detect.js"></script>
-<script src="../static/assets/js/fastclick.js"></script>
-<script src="../static/assets/js/jquery.slimscroll.js"></script>
-<script src="../static/assets/js/jquery.blockUI.js"></script>
-<script src="../static/assets/js/waves.js"></script>
-<script src="../static/assets/js/wow.min.js"></script>
-<script src="../static/assets/js/jquery.nicescroll.js"></script>
-<script src="../static/assets/js/jquery.scrollTo.min.js"></script>
+    <!-- jQuery  -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/detect.js"></script>
+    <script src="../static/assets/js/fastclick.js"></script>
+    <script src="../static/assets/js/jquery.slimscroll.js"></script>
+    <script src="../static/assets/js/jquery.blockUI.js"></script>
+    <script src="../static/assets/js/waves.js"></script>
+    <script src="../static/assets/js/wow.min.js"></script>
+    <script src="../static/assets/js/jquery.nicescroll.js"></script>
+    <script src="../static/assets/js/jquery.scrollTo.min.js"></script>
 
-<script src="../static/assets/js/jquery.app.js"></script>
+    <script src="../static/assets/js/jquery.app.js"></script>
 
-<!-- Sweet-Alert  -->
-<script src="../static/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../static/assets/pages/jquery.sweet-alert.init.js"></script>
-<script>
-    // var url = "demo/form/select2";
-    // console.log(url)
-    $(function () {
-        var selectedValues = [];
-        $("#shopName:selected").each(function () {
-            selectedValues.push($(this).val());
+    <!-- Sweet-Alert  -->
+    <script src="../static/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../static/assets/pages/jquery.sweet-alert.init.js"></script>
+    <script>
+        // var url = "demo/form/select2";
+        // console.log(url)
+        $(function () {
+            var selectedValues = [];
+            $("#shopName:selected").each(function () {
+                selectedValues.push($(this).val());
+            });
+
+            $("#shopName").selectpicker({
+                noneSelectedText: '请选择',   //默认显示内容
+                //placeholder:'请选择',//默认文字提示
+                // {#tags: true,//允许手动添加 #}
+                allowClear: true,//允许清空
+            });
+            loadnetdatas2();
+            loadnetdatabs2();    //执行此函数，从后台获取数据，拼接成option标签，添加到select的里面
+
+            //初始化刷新数据
+            $(window).on('load', function () {
+                $('#shopName').selectpicker('val', '');
+                $('#shopName').selectpicker('refresh');
+            });
+
         });
-
-        $("#shopName").selectpicker({
-            noneSelectedText: '请选择',   //默认显示内容
-            //placeholder:'请选择',//默认文字提示
-            // {#tags: true,//允许手动添加 #}
-            allowClear: true,//允许清空
-        });
-        loadnetdatas2();
-        loadnetdatabs2();    //执行此函数，从后台获取数据，拼接成option标签，添加到select的里面
-
-        //初始化刷新数据
-        $(window).on('load', function () {
-            $('#shopName').selectpicker('val', '');
-            $('#shopName').selectpicker('refresh');
-        });
-
-    });
-    //var category = $.trim($('#select2ID option:selected').val());
-    function loadnetdatabs2() {
-        $.ajax({
-            url: "/getLoginAgentUser",    //后台controller中的请求路径
-            type: 'GET',
-            async: false,
-            datatype: 'json',
-            success: function (results) {
-                if (results) {
-                    var jsondata = results.data;
-                    //console.log(jsondata)
-                    var netnames = [];
-                    console.log(jsondata.length)
-                    for (var i = 0, len = jsondata.length; i < len; i++) {
-                        var netdata = jsondata[i];
-                        console.log(netdata)
-                        //拼接成多个<option><option/>
-                        netnames.push('<option value="' + netdata.userId + '">'
-                            + netdata.userName + '</option>')
+        //var category = $.trim($('#select2ID option:selected').val());
+        function loadnetdatabs2() {
+            $.ajax({
+                url: url,    //后台controller中的请求路径
+                type: 'GET',
+                async: false,
+                datatype: 'json',
+                success: function (results) {
+                    if (results) {
+                        var jsondata = results.data;
+                        //console.log(jsondata)
+                        var netnames = [];
+                        console.log(jsondata.length)
+                        for (var i = 0, len = jsondata.length; i < len; i++) {
+                            var netdata = jsondata[i];
+                            console.log(netdata)
+                            //拼接成多个<option><option/>
+                            netnames.push('<option value="' + netdata.userId + '">'
+                                + netdata.userName + '</option>')
+                        }
+                        $(" #shopName").html(netnames.join('')); //根据netID(根据你自己的ID写)填充到select标签中
+                        $('#shopName').selectpicker('val', '');
+                        $('#shopName').selectpicker('refresh');
                     }
-                    $(" #shopName").html(netnames.join('')); //根据netID(根据你自己的ID写)填充到select标签中
-                    $('#shopName').selectpicker('val', '');
-                    $('#shopName').selectpicker('refresh');
-                }
-            }, error:
-                function () { alert('查询出错'); }
-        });
-    } </script>
+                }, error:
+                    function () { alert('查询出错'); }
+            });
+        } </script>
 
 </html>
