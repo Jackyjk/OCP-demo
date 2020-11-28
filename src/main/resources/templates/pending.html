@@ -46,7 +46,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="../index.html" class="logo"><i class="md md-terrain"></i>
+                        <a href="index2.html" class="logo"><i class="md md-terrain"></i>
                             <span>万家乐OCP经销商平台 </span></a>
                     </div>
                 </div>
@@ -205,12 +205,19 @@
                                                                 <td>[(${p.pnumber })]</td>
                                                                 <td>[(${p.pprice })]</td>
                                                                 <td>
-                                                                    <button class="btn btn-default" type="button"
-                                                                        data-toggle="modal"
-                                                                        data-target="#custom-width-modal">删除
-                                                                    </button>
-                                                                    <a class="btn btn-default" type="button"
-                                                                        th:href="@{/preUpdate/}+${p.id}">编辑</a>
+                                                                    <div>
+                                                                        <button class="btn btn-default" type="button">审核
+                                                                        </button>
+                                                                        <a class="btn btn-default" type="button"
+                                                                            th:href="@{/updateOrderProduct/}+${p.id}">编辑</a>
+                                                                        <button class="btn btn-default" type="button"
+                                                                            data-toggle="modal"
+                                                                            data-target="#custom-width-modal">删除
+                                                                        </button>
+                                                                        <button>
+                                                                            <input type="file" style="width:72.5px" />
+                                                                        </button>
+                                                                    </div>
                                                                     <!-- Modal模态框-->
                                                                     <div id="custom-width-modal" class="modal fade"
                                                                         tabindex="-1" role="dialog"
@@ -240,6 +247,7 @@
                                                                             </div><!-- /.modal-content -->
                                                                         </div><!-- /.modal-dialog -->
                                                                     </div>
+
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -252,8 +260,8 @@
                                             <div class="col-sm-6">
                                                 <div class="dataTables_info" id="datatable-fixed-header_info"
                                                     role="status" aria-live="polite">Showing 1 to <span
-                                                        th:text="${page.pages }"></span> of <span
-                                                        th:text="${page.total}"></span>
+                                                        th:text="${page.pages }"></span>
+                                                    of <span th:text="${page.total}"></span>
                                                     entries
                                                 </div>
                                             </div>

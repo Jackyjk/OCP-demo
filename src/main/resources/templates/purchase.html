@@ -46,7 +46,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="../index.html" class="logo"><i class="md md-terrain"></i>
+                        <a href="index2.html" class="logo"><i class="md md-terrain"></i>
                             <span>万家乐OCP经销商平台 </span></a>
                     </div>
                 </div>
@@ -187,22 +187,23 @@
                                                             <tr>
                                                                 <th>序号</th>
                                                                 <th>订单日期</th>
-                                                                <th>订单编号</th>
+                                                                <th>销售订单号</th>
+                                                                <th>订单类型</th>
                                                                 <th>订单状态</th>
-                                                                <th>备货数量</th>
+                                                                <th>数量</th>
                                                                 <th>总金额</th>
                                                                 <th>操作</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr th:each="p : ${page.list}">
-                                                                <td>[(${p.id})]</td>
-                                                                <td>[(${p.pcode })]</td>
-                                                                <td>[(${p.pname })]</td>
-                                                                <td>[(${p.ptype })]</td>
-                                                                <td>[(${p.pcategory })]</td>
-                                                                <td>[(${p.pnumber })]</td>
-                                                                <td>[(${p.pprice })]</td>
+                                                                <td>[(${i})]</td>
+                                                                <td>[(${p.date })]</td>
+                                                                <td>[(${p.id })]</td>
+                                                                <td>[(${p.type })]</td>
+                                                                <td>配送</td>
+                                                                <td>[(${p.number })]</td>
+                                                                <td>[(${p.price })]</td>
                                                                 <td>
                                                                     <button class="btn btn-default" type="button"
                                                                         data-toggle="modal"
