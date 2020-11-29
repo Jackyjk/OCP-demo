@@ -13,6 +13,9 @@ public class AgentUser {
     private String createTime;
     private String updateTime;
 
+    public AgentUser() {
+    }
+
     public AgentUser(int id, String name, int roleType, String code, String zone, String password, WareHouse wareHouse, Department department, int delFlag, String createTime, String updateTime) {
         this.id = id;
         this.name = name;
@@ -25,9 +28,6 @@ public class AgentUser {
         this.delFlag = delFlag;
         this.createTime = createTime;
         this.updateTime = updateTime;
-    }
-
-    public AgentUser() {
     }
 
     public int getId() {
@@ -116,5 +116,22 @@ public class AgentUser {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "AgentUser{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", roleType=" + roleType +
+                ", code='" + code + '\'' +
+                ", zone='" + zone + '\'' +
+                ", password='" + password + '\'' +
+                ", wareHouse=" + wareHouse +
+                ", department=" + department +
+                ", delFlag=" + delFlag +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
     }
 }

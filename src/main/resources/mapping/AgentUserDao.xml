@@ -5,11 +5,27 @@
 <mapper namespace="com.isoftstone.demo.dao.AgentUserDao">
 
     <resultMap id="agentUserMap" type="com.isoftstone.demo.pojo.AgentUser">
-
+        <id property="id" column="f_id"/>
+        <result property="name" column="f_name"/>
+        <result property="roleType" column="f_role_type"/>
+        <result property="code" column="f_code"/>
+        <result property="zone" column="f_zone"/>
+        <result property="password" column="f_password"/>
+        <association property="department" javaType="com.isoftstone.demo.pojo.Department">
+            <id property="id" column="f_id"/>
+            <result property="name" column="f_name"/>
+            <result property="headline" column="f_headline"/>
+        </association>
     </resultMap>
 
 
     <select id="getUserByNameAndPassword" parameterType="map" resultMap="agentUserMap">
-
+        SELECT *
+        FROM t_agent_user au,t_department d
+        WHERE au.`f_name`=#{username}
+          and au.`f_password`=#{password}
+          and au.`f_department_id`=d.f_id
+          and au.`f_del_flag`=0
+          and d.`f_del_flag`=0
     </select>
 </mapper>

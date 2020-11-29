@@ -4,10 +4,20 @@ public class Department {
     private int id;
     private String name;
     private int delFlag;
+    private String headline;
     private String createTime;
     private String updateTime;
 
     public Department() {
+    }
+
+    public Department(int id, String name, int delFlag, String headline, String createTime, String updateTime) {
+        this.id = id;
+        this.name = name;
+        this.delFlag = delFlag;
+        this.headline = headline;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
     }
 
     public int getId() {
@@ -34,6 +44,14 @@ public class Department {
         this.delFlag = delFlag;
     }
 
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(String headline) {
+        this.headline = headline;
+    }
+
     public String getCreateTime() {
         return createTime;
     }
@@ -48,5 +66,17 @@ public class Department {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", delFlag=" + delFlag +
+                ", headline='" + headline + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
     }
 }
